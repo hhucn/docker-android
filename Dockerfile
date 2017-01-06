@@ -27,3 +27,5 @@ RUN curl -L https://services.gradle.org/distributions/gradle-$GRADLE_VERSION-bin
     && unzip gradle.zip\
     && rm gradle.zip\
     && ln -s gradle-$GRADLE_VERSION gradle
+
+WORKDIR /build
