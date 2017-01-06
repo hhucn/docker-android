@@ -9,7 +9,7 @@ ENV GRADLE_VERSION 2.14.1
 ENV PATH ${PATH}:/usr/local/gradle/bin
 
 # Install tools for NDK building
-RUN apt update && apt install build-essential lib32stdc++6
+RUN apt update && apt install build-essential lib32stdc++6 file
 
 # Install Android SDK Manager and necessary components
 WORKDIR $ANDROID_HOME
