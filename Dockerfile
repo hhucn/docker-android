@@ -6,7 +6,6 @@ ENV ANDROID_HOME  /opt/android
 ENV ANDROID_TOOLS https://dl.google.com/android/repository/tools_r25.2.3-linux.zip
 ENV GRADLE_VERSION 2.14.1
 ENV PATH ${PATH}:/usr/local/gradle/bin
-ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 
 # Install Android SDK Manager and necessary components
 WORKDIR $ANDROID_HOME
