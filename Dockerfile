@@ -3,9 +3,13 @@ MAINTAINER Raphael Bialon <bialon@cs.uni-duesseldorf.de>
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV ANDROID_HOME  /opt/android
+ENV ANDROID_NDK_HOME ${ANDROID_HOME}/ndk-bundle
 ENV ANDROID_TOOLS https://dl.google.com/android/repository/tools_r25.2.3-linux.zip
 ENV GRADLE_VERSION 2.14.1
 ENV PATH ${PATH}:/usr/local/gradle/bin
+
+# Install tools for NDK building
+RUN apt update && apt install build-essential lib32stdc++6
 
 # Install Android SDK Manager and necessary components
 WORKDIR $ANDROID_HOME
