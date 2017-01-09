@@ -4,9 +4,8 @@ MAINTAINER Raphael Bialon <bialon@cs.uni-duesseldorf.de>
 ENV DEBIAN_FRONTEND noninteractive
 ENV ANDROID_HOME  /opt/android
 ENV ANDROID_NDK_HOME ${ANDROID_HOME}/ndk-bundle
+ENV GRADLE_USER_HOME /cache/.gradle
 ENV ANDROID_TOOLS https://dl.google.com/android/repository/tools_r25.2.3-linux.zip
-ENV GRADLE_VERSION 2.14.1
-ENV PATH ${PATH}:/usr/local/gradle/bin
 
 # Install tools for NDK building
 RUN apt-get -qq update && apt-get -yqq install build-essential lib32stdc++6 file
@@ -25,12 +24,5 @@ RUN echo y | ./tools/bin/sdkmanager "build-tools;25.0.2"\
     && ./tools/bin/sdkmanager "platforms;android-24"\
     && ./tools/bin/sdkmanager "extras;android;m2repository"\
     && ./tools/bin/sdkmanager --update
-
-# Install gradle
-WORKDIR /usr/local
-RUN curl -L https://services.gradle.org/distributions/gradle-$GRADLE_VERSION-bin.zip --output gradle.zip\
-    && unzip gradle.zip\
-    && rm gradle.zip\
-    && ln -s gradle-$GRADLE_VERSION gradle
 
 WORKDIR /build
