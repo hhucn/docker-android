@@ -16,13 +16,14 @@ WORKDIR $ANDROID_HOME
 RUN curl -L $ANDROID_TOOLS --output android-tools.zip\
     && unzip android-tools.zip\
     && rm android-tools.zip
-RUN echo y | ./tools/bin/sdkmanager "build-tools;25.0.0"\
-    && ./tools/bin/sdkmanager "build-tools;24.0.0"\
+RUN echo y | ./tools/bin/sdkmanager "build-tools;25.0.2"\
+    && ./tools/bin/sdkmanager "build-tools;24.0.3"\
     && ./tools/bin/sdkmanager "tools"\
     && ./tools/bin/sdkmanager "platform-tools"\
     && ./tools/bin/sdkmanager "ndk-bundle"\
     && ./tools/bin/sdkmanager "platforms;android-25"\
     && ./tools/bin/sdkmanager "platforms;android-24"\
+    && ./tools/bin/sdkmanager "extras;android;m2repository"\
     && ./tools/bin/sdkmanager --update
 
 # Install gradle
