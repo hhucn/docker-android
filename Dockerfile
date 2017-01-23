@@ -15,14 +15,15 @@ WORKDIR $ANDROID_HOME
 RUN curl -L $ANDROID_TOOLS --output android-tools.zip\
     && unzip android-tools.zip\
     && rm android-tools.zip
-RUN echo y | ./tools/bin/sdkmanager "build-tools;25.0.2"\
-    && ./tools/bin/sdkmanager "build-tools;24.0.3"\
-    && ./tools/bin/sdkmanager "tools"\
-    && ./tools/bin/sdkmanager "platform-tools"\
-    && ./tools/bin/sdkmanager "ndk-bundle"\
-    && ./tools/bin/sdkmanager "platforms;android-25"\
-    && ./tools/bin/sdkmanager "platforms;android-24"\
-    && ./tools/bin/sdkmanager "extras;android;m2repository"\
-    && ./tools/bin/sdkmanager --update
+
+RUN echo y | ./tools/bin/sdkmanager "build-tools;25.0.2"
+RUN ./tools/bin/sdkmanager "build-tools;24.0.3"
+RUN ./tools/bin/sdkmanager "tools"
+RUN ./tools/bin/sdkmanager "platform-tools"
+RUN ./tools/bin/sdkmanager "ndk-bundle"
+RUN ./tools/bin/sdkmanager "platforms;android-25"
+RUN ./tools/bin/sdkmanager "platforms;android-24"
+RUN ./tools/bin/sdkmanager "extras;android;m2repository"
+RUN ./tools/bin/sdkmanager --update
 
 WORKDIR /build
